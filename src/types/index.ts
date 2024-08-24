@@ -1,12 +1,22 @@
-interface iCard{
+export interface ICard{
     id: string;
     description: string;
     image: string;
     title: string;
     category: string;
-    price: number;
+    price: number | null;
 }
 
-interface iItems {
-    items: iCard[];
+// export interface IItems {
+//     items: ICard[];
+// }
+
+export type TCardBaseInfo = Pick<ICard, 'image' | 'category' | 'title' | 'description' | 'price'>;
+
+export type TCardBuyInfo = Pick<ICard, 'title' | 'price'>;
+
+export interface ICardsData {
+	cards: ICard[];
+	preview: string | null;
+    getCard(cardId: string): TCardBaseInfo;
 }
