@@ -369,7 +369,7 @@ interface ISuccess {
 - `constructor(container: HTMLElement, actions?: ICardActions)` - принимает контейнер для карточки и объект действий. В конструкторе устанавливаются обработчики событий для категории, заголовка, изображения, описания, кнопки, цены.
 ##### Методы:
 - `set id(value: string)` - устанавливает идентификатор товара;
-- `set category(value: CardCategory)` - устанавливает категорию товара и добавляет соответствующий класс к элементу категории;
+- `set category(value: CardCategory)` - устанавливает категорию товара;
 - `set title(value: string)` - устанавливает название товара;
 - `set description(value: string)` - устанавливает описание карточки;
 - `set image(value: string)` - устанавливает изображение карточки;
