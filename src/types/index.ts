@@ -43,6 +43,19 @@ export interface IOrderResult {
 	total: number;
 }
 
+export interface IFormState {
+  valid: boolean;
+  errors: string[];
+}
+
+export interface ISuccess {
+  total: number;
+}
+
+export interface ISuccessActions {
+  onClick: () => void;
+}
+
 export interface ICardActions {
   onClick: (event: MouseEvent) => void;
 }
