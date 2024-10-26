@@ -1,3 +1,21 @@
+export enum EventTypes {
+  ITEMS_CHANGED = 'items:changed',
+  CARD_SELECT = 'card:select',
+  BASKET_ADD = 'basket:add',
+  PRODUCT_DELETE = 'product:delete',
+  BASKET_CHANGED = 'basket:changed',
+  BASKET_OPEN = 'basket:open',
+  PREVIEW_CHANGED = 'preview:changed',
+  ORDER_OPEN = 'order:open',
+  CONTACTS_SUBMIT = 'contacts:submit',
+  FORM_ERRORS_CHANGE = 'formErrors:change',
+  CONTACTS_READY = 'contacts:ready',
+  ORDER_READY = 'order:ready',
+  MODAL_OPEN = 'modal:open',
+  MODAL_CLOSE = 'modal:close',
+  ORDER_SUBMIT = 'order:submit',
+}
+
 export type CardCategory = 'другое' | 'софт-скил' | 'дополнительное' | 'кнопка' | 'хард-скил';
 
 export type CategorySelection = {
@@ -20,13 +38,44 @@ export interface IOrderForm {
     phone: string;
   }
 
+export interface IOrderResult {
+	id: string;
+	total: number;
+}
+
+export interface ICardActions {
+  onClick: (event: MouseEvent) => void;
+}
+
+export interface Category {
+  [key: string]: string;
+}
+
+export interface ICard {
+  id: string;
+  description: string;
+  image: string;
+  title: string;
+  category: string;
+  price: number | null;
+  index: string;
+  inBasket: boolean;
+}
+
+export interface IPage {
+  counter: number;
+  catalog: HTMLElement[];
+  locked: boolean;
+}
+
 export interface ICardItem {
     id: string;
     description: string;
     image: string;
     title: string;
-    category: CardCategory;
+    category: string;
     price: number | null;
+    inBasket: boolean;
   }
 
   export interface IOrder {
@@ -38,7 +87,18 @@ export interface ICardItem {
     id: string[];
   }
 
+  export interface iBasket {
+    quantity: number;
+    title: string;
+    price: number;
+    totalPrice: number;
+  }
+
   export interface IBasketView {
     items: HTMLElement[];
     total: number;
+}
+
+export interface IModalData {
+  content: HTMLElement;
 }
